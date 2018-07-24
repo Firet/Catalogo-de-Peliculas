@@ -1,0 +1,147 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-column-gap: 15px;
+  grid-row-gap:200px;
+  margin: 20px;
+  margin-top: 60px;
+
+}
+.grid-item {
+  background-color: white;
+  text-align: center; 
+  width: 150px;
+  height: 150px;
+  margin-left: 50px;
+
+}
+
+#s-barra {  
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 25px;
+  /*border-bottom: 1px solid red;*/
+  width: 400px;
+  margin:0 auto;
+} 
+
+#borde {
+  border-bottom: 1px solid red;
+  width: 60px;
+  margin: 0 auto;
+}
+
+
+img {
+  height: 100%;
+  width: 100%;
+
+}
+#margin {
+  margin:0 auto;
+}
+.grid-item h2{
+  font-size:16px;
+  font-weight: bold;
+}
+
+.grid-item h6 {
+  font-size:13px;
+text-transform: uppercase;
+font-weight: bold;
+font-family: 'Alegreya Sans', sans-serif;
+}
+
+.grid-item h4 {
+  font-size: 15px;
+font-family: 'Alegreya', serif;
+}
+
+.grid-item p {
+  font-size:15px;
+  color: grey;
+}
+
+#largo{
+  font-size:20px;  
+}
+
+#slash {
+  color: grey;
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  right: 390px;
+  top:20px;
+}
+
+/* ANIMACION 1 */
+#animacion-1 {
+
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  right:400px;
+  top:20px;
+/*   */
+  /*-webkit-animation: bgcolorchange 30s infinite; /* Chrome, Safari, Opera */ 
+  animation: 30s infinite bgcolorchange;
+}
+
+@keyframes bgcolorchange {
+  100% {
+    color: red;
+  }
+  75% {
+    color: green;
+  }
+  50% {
+    color: blue;
+  }
+  25% {
+    color: blue;
+  }
+  0% {
+    color: red;
+  }
+}
+/* Chrome, Safari, Opera */
+/* @-webkit-keyframes bgcolorchange {
+      0%   {background: black;}
+      25%  {background: black;}
+      75%  {background: black;}
+      100% {background: black;}
+ }*/
+ /* END ANIMACION 1 */
+
+/* ANIMACION 2 */
+#animacion-2 {
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  right:355px;
+  top:21px;
+
+ /*-webkit-animation: bgcolorchange 10s infinite; /* Chrome, Safari, Opera */ 
+  animation: 5s infinite bgcolorchange_2;
+}
+
+@keyframes bgcolorchange_2 {
+  100% {
+    color: red;
+  }
+  75% {
+    color: green;
+  }
+  50% {
+    color: blue;
+  }
+  25% {
+    color: blue;
+  }
+  0% {
+    color: red;
+  }
+}
+/* END ANIMACION 2 */
