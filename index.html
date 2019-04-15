@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Home - Movie App</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Movie DB APP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample07">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="peliculas-grid.html">Peliculas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="series-grid.html">Series</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mi-lista-grid.html">Mi Lista <span class="badge badge-danger">3</span></a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-md-0" action="busqueda-peliculas-grid.html">
+                    <input class="form-control" type="text" placeholder="Buscar Película o Serie" aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="py-5 bg-light">
+        <div class="container">
+            <section class="items-section">
+                <h5 class="items-section-title">Mi Lista <a href="">Ver todas</a></h5>
+                <div class="items-section-body">
+                    <div class="row">
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="./Imagenes/blade-runner-2049.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Blade Runner 2049</span>
+                                    <span class="grid-item-date">6 de octubre del 2017</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="./Imagenes/mad-max-fury-road.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Mad Max: Fury Road</span>
+                                    <span class="grid-item-date">15 de mayo del 2015</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Django Unchained</span>
+                                    <span class="grid-item-date">18 de Enero del 2017</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">The Wolf of Wall Street</span>
+                                    <span class="grid-item-date">17 de Enero del 2014</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMjJmYTNkNmItYjYyZC00MGUxLWJhNWMtZDY4Nzc1MDAwMzU5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Fight Club</span>
+                                    <span class="grid-item-date">5 de Noviembre de 1999</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR1,0,182,268_AL_.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Pulp Fiction</span>
+                                    <span class="grid-item-date">13 de Enero de 1995</span>
+                                </span>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="items-section">
+                <h5 class="items-section-title">Películas más Populares <a href="">Ver todas</a></h5>
+                <div class="items-section-body">
+                    <div class="row">
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Matrix</span>
+                                    <span class="grid-item-date">23 de Junio de 1999</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="./Imagenes/shawshank-redemption.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Shawshank Redemption</span>
+                                    <span class="grid-item-date">24 de Febrero de 1995</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Thor: Ragnarok</span>
+                                    <span class="grid-item-date">October 25, 2017</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Thor: Ragnarok</span>
+                                    <span class="grid-item-date">October 25, 2017</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Thor: Ragnarok</span>
+                                    <span class="grid-item-date">October 25, 2017</span>
+                                </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                    <span class="grid-item-title">Thor: Ragnarok</span>
+                                    <span class="grid-item-date">October 25, 2017</span>
+                                </span>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="items-section">
+                <h5 class="items-section-title">Series más Populares <a href="">Ver todas</a></h5>
+                <div class="items-section-body">
+                    <div class="row">
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                <span class="grid-item-title">Thor: Ragnarok</span>
+                                <span class="grid-item-date">October 25, 2017</span>
+                            </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                <span class="grid-item-title">Thor: Ragnarok</span>
+                                <span class="grid-item-date">October 25, 2017</span>
+                            </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                <span class="grid-item-title">Thor: Ragnarok</span>
+                                <span class="grid-item-date">October 25, 2017</span>
+                            </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                <span class="grid-item-title">Thor: Ragnarok</span>
+                                <span class="grid-item-date">October 25, 2017</span>
+                            </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                <span class="grid-item-title">Thor: Ragnarok</span>
+                                <span class="grid-item-date">October 25, 2017</span>
+                            </span>
+                            </a>
+                        </article>
+                        <article class="col-md-2">
+                            <a href="detalle.html" class="grid-item">
+                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/oSLd5GYGsiGgzDPKTwQh7wamO8t.jpg" alt="Movie Image" class="img-fluid">
+                                <span class="grid-item-body">
+                                <span class="grid-item-title">Thor: Ragnarok</span>
+                                <span class="grid-item-date">October 25, 2017</span>
+                            </span>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>
