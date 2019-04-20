@@ -1,0 +1,25 @@
+{
+  "name": "catalogo-de-peliculas",
+  "version": "1.0.0",
+  "description": "\"ApiREST de peliculas\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./Server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Firet/Catalogo-de-Peliculas.git"
+  },
+  "author": "\"Firet\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Firet/Catalogo-de-Peliculas/issues"
+  },
+  "homepage": "https://github.com/Firet/Catalogo-de-Peliculas#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2"
+  },
+  "devDependencies": {}
+}
