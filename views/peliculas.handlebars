@@ -1,7 +1,6 @@
-<h1>Películas</h1>
-<p>Listado de películas</p>
+<h1>Listado de Películas</h1>
 
-{{#each pelicula}}
+{{!-- {{#each pelicula}}
   <h2>
     <a href="/pelicula/{{@index}}">{{this.section}}</a>
   </h2>
@@ -10,4 +9,12 @@
       <li>{{this}}</li>
     {{/each}}
   </ul>
+{{/each}} --}}
+
+<div>{{tituloDeSeccion}}</div>
+
+<ul>
+{{#each peliculas}}
+  <li>{{this}}</li>
 {{/each}}
+</ul>

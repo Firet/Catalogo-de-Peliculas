@@ -30,27 +30,32 @@ app.get('/json', function (req, res) {
 
 // HANDLEBARS
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 
 app.get('/', function (req, res) {
-    res.render('home')
+    res.render('home');
 });
 
 
 app.use(express.static('public'))
 
 app.get('/peliculas', function (req, res) {
-    res.render('peliculas')
+    res.render('peliculas', { tituloDeSeccion: 'Sección de películas', peliculas: ['El señor de los anillos', 'Star trek', 'Citizen kane', 'Bonanza'] })
 });
 
 app.get('/contact', function (req, res) {
-    res.render('contact')
+    res.render('contact');
 });
 
-app.get('/products', function (req, res) {
-//    res.render('products', { nombre: 'Producto a mostrar'});
-    res.render('products', { nombre: 'Productos a mostrar', products: ['tv', 'printer', 'ps4']});
-    //res.render('product', { product: product })
-})
+
+const Peliculas = [
+    { saga: 'Terminator', items: ['MacBook', 'MacBook Air', 'MacBook Pro', 'iMac', 'iMac Pro', 'Mac Pro', 'Mac mini', 'Accessories', 'High Sierra'] },
+    { saga: 'Jurassic Park', items: ['iPad Pro', 'iPad', 'iPad mini 4', 'iOS 11', 'Accessories'] },
+    { saga: 'Back to the future', items: ['iPhone X', 'iPhone 8', 'iPhone 7', 'iPhone 6s', 'iPhone SE', 'iOS 11', 'Accessories'] }
+  ]
+
+  app.get('/products', function (req, res) {
+    res.render('products', { pelicula: Peliculas})
+  })
