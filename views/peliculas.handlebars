@@ -1,20 +1,15 @@
-<h1>Listado de Películas</h1>
+<h1>NFX - Pls</h1>
+<h3>{{nombreDeSeccion}}</h3>
 
-{{!-- {{#each pelicula}}
-  <h2>
-    <a href="/pelicula/{{@index}}">{{this.section}}</a>
-  </h2>
-  <ul>
-    {{#each items}}
-      <li>{{this}}</li>
-    {{/each}}
-  </ul>
-{{/each}} --}}
-
-<div>{{tituloDeSeccion}}</div>
-
+{{#each pelicula}}
+<h2>
+    <a href="/pelicula/{{@index}}">{{this.titulo}}</a>
+</h2>
 <ul>
-{{#each peliculas}}
-  <li>{{this}}</li>
-{{/each}}
+    {{#each items}}
+    <li>{{this}}</li>
+    {{/each}}
 </ul>
+{{/each}}
+
+

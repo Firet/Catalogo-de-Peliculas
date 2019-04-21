@@ -3,14 +3,20 @@
         <li>
             <a href="/">
                 {{!-- Chequear por qué no anda! la ruta está bien. --}}
-                <img src="../../public/Imagenes/logo-proyector.jpg" alt="Ir al incio">
+                <img src="../../public/Imagenes/logo-proyector.jpg" alt="Incio">
             </a>
         </li>
         <li>
             <a href="/peliculas">Películas</a>
         </li>
         <li>
-            <a href="/contact">Contactos</a>
+            <a href="/series">Series</a>
+        </li>
+        {{!-- <li>
+            <a href="/contactos">Contactos</a>
+        </li>
+        <li> --}}
+            <a href="/contacto" class="{{#if selected.contact}}selected{{/if}}">Contacto</a>
         </li>
     </ul>
 </nav>

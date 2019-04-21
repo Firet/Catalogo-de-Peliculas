@@ -1,0 +1,13 @@
+<h1>NFX - Srs</h1>
+<h3>{{nombreDeSeccion}}</h3>
+
+{{#each serie}}
+  <h2>
+    <a href="/series/{{@index}}">{{this.temporada}}</a>
+  </h2>
+  {{!-- <ul>
+    {{#each capitulo}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul> --}}
+{{/each}}

@@ -5,10 +5,20 @@ body {
     padding: 0;
   }
   
+  /* Chequear, lo puse para sacarle el decorado al link de contactos, pero eso lo DEBERÍA hacer nav ul li a*/
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
   nav {
     border-bottom: 1px solid black;
     padding-left: 20px;
-    background: rgba(0,0,0,0.8);
+    background: rgba(238, 214, 2, 0.993);
+    height: 70px;
+    padding-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
   }
   
   nav ul {
@@ -30,7 +40,7 @@ body {
   
   nav ul li a {
     text-decoration: none;
-    color: white;
+    color: black;
     display: block;
   }
   nav ul li a:hover{
@@ -94,4 +104,9 @@ body {
     display: inline-block;
     text-align: center;
     white-space: nowrap;
+  }
+
+  /* Chequear esto para la botonera dinámica */
+  nav ul li a.selected {
+    color: gray;
   }
