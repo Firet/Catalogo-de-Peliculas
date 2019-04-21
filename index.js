@@ -49,15 +49,8 @@ app.get('/contact', function (req, res) {
     res.render('contact')
 });
 
-
-const products = [
-    { section: 'MacBook', items: ['MacBook', 'MacBook Air', 'MacBook Pro', 'iMac', 'iMac Pro', 'Mac Pro', 'Mac mini', 'Accessories', 'High Sierra'] },
-    { section: 'iPad', items: ['iPad Pro', 'iPad', 'iPad mini 4', 'iOS 11', 'Accessories'] },
-    { section: 'iPhone', items: ['iPhone X', 'iPhone 8', 'iPhone 7', 'iPhone 6s', 'iPhone SE', 'iOS 11', 'Accessories'] }
-]
-
-//res.render('products', { nombre: 'Mi Producto'})
-
 app.get('/products', function (req, res) {
-    res.render('product', { product: product })
+//    res.render('products', { nombre: 'Producto a mostrar'});
+    res.render('products', { nombre: 'Productos a mostrar', products: ['tv', 'printer', 'ps4']});
+    //res.render('product', { product: product })
 })
