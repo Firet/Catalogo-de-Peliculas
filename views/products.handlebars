@@ -1,0 +1,13 @@
+<h1>Apple - Products</h1>
+<p>Listado de productos</p>
+
+<ol>
+{{#each products}}
+  <li>{{this.name}}</li>
+{{/each}}
+</ol>
+
+<h2>Productos Por AJAX</h2>
+<div id="productos">
+  <img src="/img/loading.gif" alt="gif de loading" width="30" />
+</div>
