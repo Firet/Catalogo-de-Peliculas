@@ -3,28 +3,11 @@ const app = express();
 const path = require('path');
 const exphbs = require('express-handlebars');
 
-app.use('/assets', express.static('public'));
+//app.use('/assets', express.static('public'));
 
-
-app.listen(3000, function () {
-    console.log('Express app listening on port 3000!');
+app.listen(4000, function () {
+    console.log('Express escuchando en el puerto 4000!');
 });
-
-
-app.get('/json', function (req, res) {
-    res.json({ nombre: 'Paul Atreides', edad: '35' });
-});
-
-
-//Ruta a la página de inicio
-// app.get('/inicio', function(request, response) {
-//     response.sendFile(path.join(__dirname, './Public/index.html'));
-// });
-
-
-// var wiki = require('./home.js');
-
-// app.use('/', wiki);
 
 // ***********HANDLEBARS**************************************************************************
 
@@ -36,7 +19,7 @@ app.get('/', function (req, res) {
     res.render('home');
 });
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.get('/contacto', function (req, res) {
     //res.render('contact');
@@ -94,9 +77,6 @@ app.get('/contacto/submitporget', function (req, res) {
     `);
 });
 
-
-
-
 // ***********MONGO DB**************************************************************************
 
 // Obtenemos el objeto MongoClient
@@ -112,12 +92,12 @@ const client = new MongoClient(url);
 
 // Utilizamos el método connect para conectarnos a MongoDB
 client.connect(function (err, client) {
-  // Acá va todo el código para interactuar con MongoDB
-  console.log("Conectado a MongoDB, usando la base de datos " + dbName);
-  
+    // Acá va todo el código para interactuar con MongoDB
+    console.log("Conectado a MongoDB, usando la base de datos " + dbName);
 
-  // Luego de usar la conexión podemos cerrarla
-  client.close();
+
+    // Luego de usar la conexión podemos cerrarla
+    client.close();
 });
 
 
@@ -126,11 +106,156 @@ client.connect(function (err, client) {
 app.get('/products', function (req, res) {
     const client = new MongoClient(url);
     client.connect(function (err, client) {
-      const db = client.db(dbName);
-      const coleccion = db.collection(collectionName);
-      coleccion.find().toArray(function (err, productos) {
-        client.close();
-        res.render('products', { products: productos, selected: { products: true } });
-      });
+        const db = client.db(dbName);
+        const coleccion = db.collection(collectionName);
+        coleccion.find().toArray(function (err, productos) {
+            client.close();
+            res.render('products', { products: productos, selected: { products: true } });
+        });
     });
+});
+
+
+// Modificamos la ruta/controller de api para que retorne también los mismos productos
+app.get('/api/products', function (req, res) {
+    const client = new MongoClient(url);
+    MongoClient.connect(url, function (error, db) {
+        var coleccion = db.collection('products');
+        coleccion.find().toArray(function (err, productos) {
+            db.close();
+            res.json(productos);
+        });
+    });
+});
+
+
+// Ruta para un producto especifico ***
+app.get('/products/:name', function (req, res) {
+    const name = req.params.name
+
+    MongoClient.connect(url, function (error, db) {
+        var coleccion = db.collection('products');
+        coleccion.findOne({ name: name }, function (err, producto) {
+            db.close();
+            res.render('product', { product: producto });
+        });
+    });
+});
+
+
+// Crear producto nuevo
+app.get('/productos/nuevo', function (req, res) {
+    res.render('productform')
+});
+
+app.post('/productos/nuevo', function (req, res) {
+    const producto = {
+        name: req.body.nombre,
+        price: parseInt(req.body.precio),
+        stock: parseInt(req.body.stock),
+        picture: req.body.imagen,
+        categories: ["macbook", "notebook"]
+    };
+
+    MongoClient.connect(url, function (error, db) {
+        var coleccion = db.collection('products');
+        coleccion.insertOne(producto, function (error, resultado) {
+            res.render('productform', { message: 'Producto creado!' })
+        });
+    });
+});
+
+// Borrar un documento ***
+const ObjectId = require('mongodb').ObjectID;
+
+app.post('/productos/borrar/:id', function (req, res) {
+    const id = req.params.id;
+
+    MongoClient.connect(url, function (error, db) {
+        var coleccion = db.collection('products');
+        coleccion.deleteOne({ _id: ObjectId(id) }, function (err, resultado) {
+            res.redirect('/products');
+        });
+    });
+});
+
+// Actualizar un documento ***
+app.get('/productos/update/:id', function (req, res) {
+    const id = req.params.id;
+    const client = new MongoClient(url);
+
+    client.connect(function (err, client) {
+        const db = client.db(dbName);
+        const coleccion = db.collection(collectionName);
+        coleccion.findOne({ _id: ObjectId(id) }, function (err, producto) {
+            client.close();
+            res.render('updateproductform', { product: producto });
+        });
+    });
+});
+
+
+app.post('/productos/update/:id', function (req, res) {
+    const id = req.params.id;
+    const producto = {
+        name: req.body.nombre,
+        price: parseInt(req.body.precio),
+        stock: parseInt(req.body.stock),
+        picture: req.body.imagen
+    }
+
+    const client = new MongoClient(url);
+
+    client.connect(function (err, client) {
+        const db = client.db(dbName);
+        const coleccion = db.collection(collectionName);
+        coleccion.updateOne({ _id: ObjectId(id) }, { $set: producto }, function (err, respuesta) {
+            coleccion.findOne({ _id: ObjectId(id) }, function (err, producto) {
+                client.close();
+                res.render('updateproductform', { message: 'Producto actualizado!', product: producto });
+            });
+        });
+    });
+})
+
+
+
+
+// ***********LOG IN**************************************************************************
+const bodyParser = require('body-parser');
+
+// JS propios (cambiar rutas, porque la locación del archivo en el que escribo debería cambiar de lugar)
+const login = require('./server/login');
+const products = require('./server/products');
+
+// Middleware de body-parser para json
+app.use(bodyParser.json());
+
+
+app.get('/landing', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/landing.html'));
+    //usando handlebars seria así 
+    //res.render('landing', { selected: { contact: true } });
+});
+
+// GET /home
+app.get('/home', (req, res) => {
+    // Responde con la página home.html
+    res.sendFile(path.join(__dirname, './public/home.html'));
   });
+  
+
+// POST /login
+app.post('/login', (req, res) => {
+    console.log(req.body);
+    if (req.body.user !== undefined && req.body.password !== undefined) {
+        if (login.validarUsuario(req.body.user, req.body.password)) {
+            res.send('/home');
+        } else {
+            res.sendStatus(403);
+        }
+    } else {
+        res.status(403).end();
+    }
+
+});

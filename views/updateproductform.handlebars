@@ -1,0 +1,26 @@
+{{#if message}}
+<div class="success">{{message}}</div>
+{{/if}}
+<div>
+  <a href="/products">volver a productos</a>
+</div>
+<h1>Actualizar un producto</h1>
+<form action="/productos/update/{{product._id}}" method="post">
+  <div>
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" id="nombre" value="{{product.name}}" required>
+  </div>
+  <div>
+    <label for="precio">Precio</label>
+    <input type="text" name="precio" id="precio" value="{{product.price}}" required>
+  </div>
+  <div>
+    <label for="stock">Stock</label>
+    <input type="text" name="stock" id="stock" value="{{product.stock}}" required>
+  </div>
+  <div>
+    <label for="imagen">Imagen</label>
+    <input type="text" name="imagen" id="imagen" value="{{product.picture}}" required>
+  </div>
+  <input type="submit" value="Actualizar">
+</form>

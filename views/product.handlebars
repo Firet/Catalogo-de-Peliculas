@@ -1,0 +1,22 @@
+<a href="/products">Ir a Products</a>
+{{#if product}}
+  <h2>{{product.name}}</h2>
+  <div class="categorias">
+    {{#each product.categories}}
+      <span>{{this}}</span>
+    {{/each}}
+  </div>
+  <div>Precio: U$S{{product.price}}</div>
+  <div>Stock: {{product.stock}}</div>
+  <div>
+    <img src="/img/products/{{product.picture}}" />
+  </div>
+
+  {{!-- Esto es para borrar un documento --}}
+  <form action="/productos/borrar/{{product._id}}" method="post">
+    <input type="submit" value="Borrar">
+  </form>
+
+{{else}}
+  <div>No hay productos</div>
+{{/if}}

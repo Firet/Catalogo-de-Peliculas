@@ -1,4 +1,4 @@
-<h1>Apple - Products</h1>
+{{!-- <h1>Apple - Products</h1>
 <p>Listado de productos</p>
 
 <ol>
@@ -10,4 +10,15 @@
 <h2>Productos Por AJAX</h2>
 <div id="productos">
   <img src="/img/loading.gif" alt="gif de loading" width="30" />
-</div>
+</div> --}}
+
+
+<ol>
+{{#each products}}
+  <li>
+    <a href="/products/{{this.name}}">
+      {{this.name}}
+    </a>
+  </li>
+{{/each}}
+</ol>

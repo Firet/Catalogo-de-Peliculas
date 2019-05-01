@@ -1,0 +1,21 @@
+.product-name {
+    font-size: 2em;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#productId {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding: 5px;
+}
+
+#search {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    width: 80px;
+    padding: 5px;
+    border: none;
+    background-color: blue;
+    color: white;
+}

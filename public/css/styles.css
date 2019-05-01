@@ -110,3 +110,12 @@ body {
   nav ul li a.selected {
     color: gray;
   }
+
+/* Exito en el posteo de un nuevo producto(pelicula, juego) */
+  .success {
+    padding: 10px;
+    background-color: lightgreen;
+    color: green;
+    margin-right: 30px;
+    margin-top: 10px;
+  }
