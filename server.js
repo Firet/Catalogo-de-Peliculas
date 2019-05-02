@@ -15,7 +15,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 
-app.get('/', function (req, res) {
+app.get('/index', function (req, res) {
     res.render('home');
 });
 
@@ -25,10 +25,10 @@ app.get('/contacto', function (req, res) {
     //res.render('contact');
     res.render('contacto', { selected: { contact: true } });
 });
-
+/*
 const peliculas = [
     { titulo: 'Dune', fechaDeEstreno: ['22 de Mayo de 2020'] },
-    { titulo: 'Mass Effect', fechaDeEstreno: ['23 de Enero de 2029'] }
+    { titulo: 'Mad max', fechaDeEstreno: ['23 de Enero de 2015'] }
 ];
 
 app.get('/peliculas', function (req, res) {
@@ -60,7 +60,7 @@ app.get('/series/:id', function (req, res) {
 
 
 
-
+*/
 app.get('/contacto/submitporget', function (req, res) {
     console.log(req.query) // vemos en la consola del server el objeto query con todos los datos
 
@@ -78,7 +78,7 @@ app.get('/contacto/submitporget', function (req, res) {
 });
 
 // ***********MONGO DB**************************************************************************
-
+/*
 // Obtenemos el objeto MongoClient
 const MongoClient = require('mongodb').MongoClient
 
@@ -220,7 +220,7 @@ app.post('/productos/update/:id', function (req, res) {
 
 
 
-
+*/
 // ***********LOG IN**************************************************************************
 const bodyParser = require('body-parser');
 
@@ -232,13 +232,13 @@ const products = require('./server/products');
 app.use(bodyParser.json());
 
 
-app.get('/landing', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/landing.html'));
     //usando handlebars seria así 
     //res.render('landing', { selected: { contact: true } });
 });
 
-// GET /home
+// ESTA RUTA NO SE USA. CHEQUEAR SI LO BORRO O NO
 app.get('/home', (req, res) => {
     // Responde con la página home.html
     res.sendFile(path.join(__dirname, './public/home.html'));
@@ -250,7 +250,7 @@ app.post('/login', (req, res) => {
     console.log(req.body);
     if (req.body.user !== undefined && req.body.password !== undefined) {
         if (login.validarUsuario(req.body.user, req.body.password)) {
-            res.send('/home');
+            res.send('/index');
         } else {
             res.sendStatus(403);
         }
@@ -258,4 +258,60 @@ app.post('/login', (req, res) => {
         res.status(403).end();
     }
 
+});
+
+
+
+
+//************Intentando usar mongo con las series */
+// Obtenemos el objeto MongoClient
+const MongoClient = require('mongodb').MongoClient
+
+// Configuramos la url dónde está corriendo MongoDB, base de datos y nombre de la colección
+const url = 'mongodb://localhost:27017';
+const dbName = 'catalogo';
+const collectionName = 'series';
+
+// Creamos una nueva instancia de MongoClient
+const client = new MongoClient(url);
+
+// Utilizamos el método connect para conectarnos a MongoDB
+client.connect(function (err, client) {
+    // Acá va todo el código para interactuar con MongoDB
+    console.log("Conectado a MongoDB, usando la base de datos " + dbName);
+
+
+    // Luego de usar la conexión podemos cerrarla
+    client.close();
+});
+
+
+
+
+app.get('/series', function (req, res) {
+    const client = new MongoClient(url);
+    client.connect(function (err, client) {
+        const db = client.db(dbName);
+        const coleccion = db.collection(collectionName);
+        coleccion.find().toArray(function (err, series) {
+            client.close();
+            res.render('series', { series_: series, selected: { series_: true } });
+        });
+    });
+});
+
+
+
+app.get('/peliculas', function (req, res) {
+    const client = new MongoClient(url);
+    client.connect(function (err, client) {
+        const db = client.db(dbName);
+        // Acá le cambié el nombre de la colección
+        const collectionName = 'peliculas';
+        const coleccion = db.collection(collectionName);
+        coleccion.find().toArray(function (err, peliculas) {
+            client.close();
+            res.render('peliculas', { peliculas_: peliculas, selected: { peliculas_: true } });
+        });
+    });
 });

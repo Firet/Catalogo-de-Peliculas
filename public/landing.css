@@ -15,8 +15,9 @@
 
 .button {
     border: none;
-    background-color: blue;
-    color: white;
+    /* Este color tiene que ser el mismo que la barra de navegación */
+    background-color: rgba(247, 4, 4, 0.993);
+    border: 3px solid black;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 5px;
@@ -36,4 +37,9 @@
     font-size: 16px;
     width: 20%;
     display: none;
+}
+
+.centrado {
+    /* margin: 0 auto;
+    text-align:center; */
 }
