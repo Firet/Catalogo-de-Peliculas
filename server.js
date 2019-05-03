@@ -22,7 +22,7 @@ app.get('/index', function (req, res) {
     res.render('home');
 });
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "./public")));
 
 app.get('/contacto', function (req, res) {
     res.render('contacto', { selected: { contact: true } });
@@ -101,9 +101,6 @@ client.connect(function (err, client) {
     // Luego de usar la conexión podemos cerrarla
     client.close();
 });
-
-
-
 
 app.get('/products', function (req, res) {
     const client = new MongoClient(url);
@@ -220,8 +217,6 @@ app.post('/productos/update/:id', function (req, res) {
     });
 })
 
-
-
 */
 // ***********LOG IN**************************************************************************
 const bodyParser = require('body-parser');
@@ -262,10 +257,7 @@ app.post('/login', (req, res) => {
 
 });
 
-
-
-
-//************Intentando usar mongo con las series */
+//************Intentando usar mongo con las series **********************************************************/
 // Obtenemos el objeto MongoClient
 const MongoClient = require('mongodb').MongoClient
 
@@ -287,9 +279,6 @@ client.connect(function (err, client) {
     client.close();
 });
 
-
-
-
 app.get('/series', function (req, res) {
     const client = new MongoClient(url);
     client.connect(function (err, client) {
@@ -301,8 +290,6 @@ app.get('/series', function (req, res) {
         });
     });
 });
-
-
 
 app.get('/peliculas', function (req, res) {
     const client = new MongoClient(url);

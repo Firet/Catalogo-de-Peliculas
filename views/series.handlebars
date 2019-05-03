@@ -3,24 +3,9 @@
 <h5>Este archivo es series.handlebars</h5>
 
 {{#each series_}}
-<h4>
-  <a href="/series/{{@index}}">{{this.titulo}}</a>
-</h4>
-
+<div class="cuadrado-de-series">
+  <span><a href="/series/{{@index}}">{{this.titulo}}</a> </span>
+  <br />
+  <img class="imagen" src="./imagenes/imagendeprueba.jpg" alt="img">
+</div>
 {{/each}}
-
-
-{{!-- <ol>
-  {{#each series_}}
-  <li>
-    <a href="/series/{{this.titulo}}">
-      {{this.titulo}}
-    </a>
-  </li>
-  <ul>
-    {{#each this}}
-    <li>{{this}}</li>
-    {{/each}}
-  </ul>
-  {{/each}}
-</ol> --}}

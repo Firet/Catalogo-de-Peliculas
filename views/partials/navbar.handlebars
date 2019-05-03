@@ -1,22 +1,21 @@
-<nav>
-    <ul>
-        <li>
-            <a href="/index">
-                {{!-- Chequear por qué no anda! la ruta está bien. --}}
-                <img src="../../public/Imagenes/logo-proyector.jpg" alt="Incio">
-            </a>
-        </li>
-        <li>
-            <a href="/peliculas">Películas</a>
-        </li>
-        <li>
-            <a href="/series">Series</a>
-        </li>
-        {{!-- <li>
-            <a href="/contactos">Contactos</a>
-        </li>
-        <li> --}}
-            <a href="/contacto" class="{{#if selected.contact}}selected{{/if}}">Contacto</a>
-        </li>
-    </ul>
-</nav>
+<header class="header">
+    <div class="logo">
+        <a href="/index">
+            {{!-- Chequear por qué no anda! la ruta está bien. --}}
+            <img src="../../public/imagenes/imagendeprueba.jpg" alt="NS">
+        </a>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li>
+                <a href="/peliculas">Películas</a>
+            </li>
+            <li>
+                <a href="/series">Series</a>
+            </li>
+            <li>
+                <a href="/contacto" class="{{#if selected.contact}}selected{{/if}}">Contacto</a>
+            </li>
+        </ul>
+    </nav>
+</header>
