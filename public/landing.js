@@ -1,9 +1,9 @@
 function doLogin() {
 
     let req = new XMLHttpRequest();
-    
-    req.onload = function() {
-        
+
+    req.onload = function () {
+
         const errorMessageDiv = document.getElementById("error-message");
 
         if (req.status == 200) {
@@ -18,14 +18,14 @@ function doLogin() {
             errorMessageDiv.style.display = "block";
         }
     }
-    
+
     req.open("POST", "/login");
-    
+
     let data = {
         user: document.getElementById("user-id").value,
         password: document.getElementById("password").value
     };
-    
+
     req.setRequestHeader('Content-type', 'application/json');
     req.send(JSON.stringify(data));
 

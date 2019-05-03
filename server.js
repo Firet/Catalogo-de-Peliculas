@@ -11,9 +11,12 @@ app.listen(4000, function () {
 
 // ***********HANDLEBARS**************************************************************************
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main',
+    layoutsDir: path.join(__dirname, "views/layouts")
+}));
 app.set('view engine', 'handlebars');
-
+app.set("views", path.join(__dirname, "./views"));
 
 app.get('/index', function (req, res) {
     res.render('home');
@@ -22,7 +25,6 @@ app.get('/index', function (req, res) {
 app.use(express.static('public'));
 
 app.get('/contacto', function (req, res) {
-    //res.render('contact');
     res.render('contacto', { selected: { contact: true } });
 });
 /*
@@ -242,8 +244,8 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     // Responde con la página home.html
     res.sendFile(path.join(__dirname, './public/home.html'));
-  });
-  
+});
+
 
 // POST /login
 app.post('/login', (req, res) => {

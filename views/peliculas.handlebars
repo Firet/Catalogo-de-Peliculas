@@ -7,26 +7,22 @@
     <a href="/pelicula/{{@index}}">{{this.titulo}}</a>
 </h2>
 <ul>
-    {{#each items}}
+    {{#each this}}
     <li>{{this}}</li>
     {{/each}}
 </ul>
 {{/each}}
 
 
-<ol>
+<ul>
     {{#each peliculas_}}
     <li>
         <a href="/peliculas/{{this.titulo}}">
             {{this.titulo}}
-        <h5>El director es </h5>
-            <h6>{{this.director}}</h6>
+            {{#if this.director}}
+            <h5>Director: {{this.director}}</h5>
+            {{/if}}
         </a>
     </li>
-    {{!-- <ul>
-    {{#each this}}
-    <li>{{this}}</li>
     {{/each}}
-  </ul> --}}
-    {{/each}}
-</ol>
+</ul>

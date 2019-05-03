@@ -1,3 +1,9 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
 .text-input {
     box-sizing: border-box;
     font-size: 16px;
@@ -15,7 +21,6 @@
 
 .button {
     border: none;
-    /* Este color tiene que ser el mismo que la barra de navegación */
     background-color: rgba(247, 4, 4, 0.993);
     border: 3px solid black;
     font-size: 20px;
@@ -39,7 +44,16 @@
     display: none;
 }
 
+
 .centrado {
-    /* margin: 0 auto;
-    text-align:center; */
+    display: flex;
+    /* align-content: center;
+    margin: 0 auto;
+    text-align:center;  */
 }
+
+ .div-hijo {
+    flex: 1 1 auto; 
+    justify-content: center;
+    align-content: center;
+ }
