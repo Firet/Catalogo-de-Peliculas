@@ -1,0 +1,44 @@
+{
+    "_id": {
+        "$oid": "5cc8db1795fdb4090389588b"
+    },
+    "titulo": "Girls"
+}
+{
+    "_id": {
+        "$oid": "5cc8dd7195fdb40903895893"
+    },
+    "titulo": "Easy"
+}
+{
+    "_id": {
+        "$oid": "5cc8dd8d95fdb40903895894"
+    },
+    "titulo": "The Affair"
+}
+{
+    "_id": {
+        "$oid": "5ccaefb1aa1ab026da152031"
+    },
+    "titulo": "Chambers"
+}
+{
+    "_id": {
+        "$oid": "5ccaf42faa1ab026da152032"
+    },
+    "titulo": "Sillicon Valley"
+}
+{
+    "_id": {
+        "$oid": "5ccaf61daa1ab026da152034"
+    },
+    "titulo": "Game of Thrones",
+    "director": "David Benioff y D. B. Weiss"
+}
+{
+    "_id": {
+        "$oid": "5ccaf8a7aa1ab026da152035"
+    },
+    "titulo": "Lost",
+    "director": "J. J. Abrams"
+}

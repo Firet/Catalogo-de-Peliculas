@@ -151,18 +151,21 @@ body {
   }
 
   .imagen {
-    width: 200px;
-    height: 200px;
+    width: 182px;
+    height: 268px;
   }
   .cuadrado-de-series {
     display: inline-block;
     padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
   }
 
 
   .cuadrado-de-peliculas {
     display: inline-block;
     padding-left: 10px;
+    padding-right: 10px;
     text-align: center;
   }
 

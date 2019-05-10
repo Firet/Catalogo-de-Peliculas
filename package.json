@@ -2,7 +2,7 @@
   "name": "catalogo-de-peliculas",
   "version": "1.0.0",
   "description": "\"ApiREST de peliculas\"",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./server.js"
@@ -19,8 +19,8 @@
   "homepage": "https://github.com/Firet/Catalogo-de-Peliculas#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.2",
-    "mongodb": "^3.2.3"
+    "express-handlebars": "^3.0.0",
+    "mongodb": "^3.1.9"
   },
   "devDependencies": {}
 }

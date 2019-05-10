@@ -1,38 +1,92 @@
-<h3>{{nombreDeSeccion}}</h3>
-
 <h5>Este archivo es peliculas.handlebars</h5>
-{{!-- 
-{{#each pelicula_}}
-<h2>
-    <a href="/pelicula/{{@index}}">{{this.titulo}}</a>
-</h2>
-<ul>
-    {{#each this}}
-    <li>{{this}}</li>
-    {{/each}}
-</ul>
-{{/each}}
-
-
-<ul>
-    {{#each peliculas_}}
-    <li>
-        <a href="/peliculas/{{this.titulo}}">
-            {{this.titulo}}
-            {{#if this.director}}
-            <h5>Director: {{this.director}}</h5>
-            {{/if}}
-        </a>
-    </li>
-    {{/each}}
-</ul> --}}
-
 
 
 {{#each peliculas_}}
 <div class="cuadrado-de-peliculas">
-  <span><a href="/peliculas/{{@index}}">{{this.titulo}}</a> </span>
-  <br />
-  <img class="imagen" src="./imagenes/imagendeprueba.jpg" alt="img">
+    <span>
+        <a href="/pelicula/{{@index}}">{{this.titulo}}</a>
+    </span>
+    <br />
+    <span>
+        <a href="/pelicula/{{this.titulosinespacio}}">
+            {{#if this.ruta}}
+            <img class="imagen" src="./imagenes/peliculas/{{this.ruta}}" alt="portada">
+            {{else}}
+            <img class="imagen" src="./imagenes/peliculas/imagendeprueba.jpg" alt="portada">
+            {{/if}}
+        </a>
+    </span>
+    <br />
+    <button onclick="borrarPelicula('{{this._id}}')">Borrar Pelicula</button>
+    {{#if this.director}}
+    <h6> {{this.director}} </h6>
+    {{else}}
+    <h6> Sin información del director</h6>
+    {{/if}}
 </div>
 {{/each}}
+
+
+
+
+<br />
+<a href="/peliculas/nueva">+ Nueva Pelicula</a>
+
+
+
+<h2>Peliculas Por AJAX</h2>
+<div id="peliculas">
+    <img src="/imagenes/loading.gif" alt="loading" width="30" />
+</div>
+
+
+
+<script>
+    window.onload = function () {
+        console.log("script de peliculas.handlebars");
+        const url = 'http://localhost:4000/api/peliculas'
+        const xmlhttp = new XMLHttpRequest();
+
+        const ocultarLoader = () => {
+            const loading = document.querySelector('#peliculas img');
+            loading.style.display = 'none';
+        }
+
+        const crearListaDePeliculas = (peliculas) => {
+            const lista = document.createElement('ul');
+            const contenedor = document.querySelector('#peliculas');
+
+            peliculas.forEach((peliculas) => {
+                const elemento = document.createElement('li');
+                elemento.textContent = peliculas.name;
+                lista.appendChild(elemento);
+            })
+
+            contenedor.appendChild(lista);
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                const respuesta = JSON.parse(xmlhttp.responseText);
+                ocultarLoader();
+                crearListaDePeliculas(respuesta);
+            }
+        };
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
+
+    /*function borrarPelicula(id) {
+        let xhr = new XMLHttpRequest();
+
+        xhr.onload = function () {
+            console.log(xhr.responseURL);
+            window.location.href = xhr.responseURL;
+        }
+
+        xhr.open("POST", "/borrarpelicula");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify({ id: id }));
+    }*/
+</script>

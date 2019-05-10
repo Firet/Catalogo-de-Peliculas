@@ -1,0 +1,61 @@
+{
+    "_id": {
+        "$oid": "5cc8dcd295fdb40903895890"
+    },
+    "titulo": "Mad Max",
+    "ruta": "mad-max-fury-road.jpg",
+    "titulosinespacio": "madmax"
+}
+{
+    "_id": {
+        "$oid": "5ccb09ddaa1ab026da152036"
+    },
+    "titulo": "Fight Club",
+    "director": "David Fincher"
+}
+{
+    "_id": {
+        "$oid": "5ccb0b12aa1ab026da152037"
+    },
+    "titulo": "Eyes Wide Shut",
+    "director": "Stanley Kubrick"
+}
+{
+    "_id": {
+        "$oid": "5ccc5ada59900f9775ce4054"
+    },
+    "titulo": "The Lords of the Rings",
+    "director": "Peter Jackson"
+}
+{
+    "_id": {
+        "$oid": "5cd1b68152278805d4ba9ccf"
+    },
+    "titulo": "Max Payne",
+    "director": "Steven Spilberg"
+}
+{
+    "_id": {
+        "$oid": "5cd4226d91c012289c2b232a"
+    },
+    "titulo": "2001: Space Odyssey",
+    "director": "Stanley Kubrick"
+}
+{
+    "_id": {
+        "$oid": "5cd51e8e96928919c057b2f2"
+    },
+    "titulo": "Django Unchained",
+    "director": "Quentin Tarantino",
+    "ruta": "django-unchained.jpg",
+    "titulosinespacio": "djangounchained"
+}
+{
+    "_id": {
+        "$oid": "5cd53cb7d164e319c036a00e"
+    },
+    "titulo": "Dune(2020)",
+    "ruta": "dune-2020.jpg",
+    "director": "Denis Villeneuve",
+    "titulosinespacio": "dune(2020)"
+}
