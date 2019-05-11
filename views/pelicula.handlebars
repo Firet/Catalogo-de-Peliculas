@@ -1,10 +1,19 @@
-<h5>Este archivo es pelicula.handlebars para una vista individual</h5>
+<h2>{{pelicula.titulo}}</h2>
 
-
-{{this.titulo}}
-
-{{#if this.director}}
-<h6> {{this.director}} </h6>
+{{#if pelicula.director}}
+<h6> Director: {{pelicula.director}} </h6>
 {{else}}
 <h6> No Hay información del director</h6>
 {{/if}}
+
+<div>
+    <img class="imagen-individual" src="/imagenes/peliculas/{{pelicula.ruta}}" alt="(!)">
+    <br />
+</div>
+
+<form action="/peliculas/borrar/{{pelicula._id}}" method="post">
+    <input type="submit" value="Borrar">
+    <a href="/peliculas/update/{{pelicula._id}}">Actualizar pelicula</a>
+</form>
+
+<a href="/peliculas">Ir a sección de peliculas</a>

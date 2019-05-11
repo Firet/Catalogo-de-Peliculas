@@ -1,10 +1,12 @@
-<h5>Este archivo es peliculas.handlebars</h5>
-
+<a href="/peliculas/nueva">+ Nueva Pelicula</a>
+<br />
 
 {{#each peliculas_}}
 <div class="cuadrado-de-peliculas">
     <span>
-        <a href="/pelicula/{{@index}}">{{this.titulo}}</a>
+        <h4>
+            <a href="/pelicula/{{@index}}">{{this.titulo}}</a>
+        </h4>
     </span>
     <br />
     <span>
@@ -17,7 +19,13 @@
         </a>
     </span>
     <br />
-    <button onclick="borrarPelicula('{{this._id}}')">Borrar Pelicula</button>
+    {{!-- 
+                    tratar de implentar 
+    <form action="/peliculas/borrar/{{pelicula._id}}" method="post">
+        <input type="submit" value="Borrar">
+        <br />
+        <a href="/peliculas/update/{{pelicula._id}}">Actualizar pelicula</a>
+    </form>  --}}
     {{#if this.director}}
     <h6> {{this.director}} </h6>
     {{else}}
@@ -29,64 +37,5 @@
 
 
 
-<br />
-<a href="/peliculas/nueva">+ Nueva Pelicula</a>
 
 
-
-<h2>Peliculas Por AJAX</h2>
-<div id="peliculas">
-    <img src="/imagenes/loading.gif" alt="loading" width="30" />
-</div>
-
-
-
-<script>
-    window.onload = function () {
-        console.log("script de peliculas.handlebars");
-        const url = 'http://localhost:4000/api/peliculas'
-        const xmlhttp = new XMLHttpRequest();
-
-        const ocultarLoader = () => {
-            const loading = document.querySelector('#peliculas img');
-            loading.style.display = 'none';
-        }
-
-        const crearListaDePeliculas = (peliculas) => {
-            const lista = document.createElement('ul');
-            const contenedor = document.querySelector('#peliculas');
-
-            peliculas.forEach((peliculas) => {
-                const elemento = document.createElement('li');
-                elemento.textContent = peliculas.name;
-                lista.appendChild(elemento);
-            })
-
-            contenedor.appendChild(lista);
-        }
-
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                const respuesta = JSON.parse(xmlhttp.responseText);
-                ocultarLoader();
-                crearListaDePeliculas(respuesta);
-            }
-        };
-
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-    }
-
-    /*function borrarPelicula(id) {
-        let xhr = new XMLHttpRequest();
-
-        xhr.onload = function () {
-            console.log(xhr.responseURL);
-            window.location.href = xhr.responseURL;
-        }
-
-        xhr.open("POST", "/borrarpelicula");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(JSON.stringify({ id: id }));
-    }*/
-</script>

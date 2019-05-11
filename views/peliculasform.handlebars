@@ -1,0 +1,27 @@
+{{#if message}}
+  <div class="success">{{message}}</div>
+{{/if}}
+<div>
+  <a href="/peliculas">volver a peliculas</a>
+</div>
+
+<h1>Crear una nueva pelicula</h1>
+<form action="/peliculas/nueva" method="post">
+  <div>
+    <label for="titulo">Titulo</label>
+    <input type="text" name="titulo" id="titulo" required>
+  </div>
+  {{!-- <div>
+    <label for="precio">Precio</label>
+    <input type="text" name="precio" id="precio" required>
+  </div>
+  <div>
+    <label for="stock">Stock</label>
+    <input type="text" name="stock" id="stock" required>
+  </div> --}}
+  <div>
+    <label for="imagen">Imagen</label>
+    <input type="text" name="imagen" id="imagen" required>
+  </div>
+  <input type="submit" value="Crear">
+</form>
