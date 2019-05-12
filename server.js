@@ -282,20 +282,29 @@ app.post('/peliculas/unfav/:id', function (req, res) {
         const db = client.db(dbName);
         const collectionName = "favoritos";
         const coleccion = db.collection(collectionName);
-        //Borro el documento de la colección favoritos, en peliculas sigue estando
-        coleccion.deleteOne({ _id: ObjectId(id) }, function (err, eliminado) {
-            // Me cambio a la colección peliculas
-            const db = client.db(dbName);
-            const collectionName = "peliculas";
-            const coleccion = db.collection(collectionName);
-            // Actualizo el objeto, lo busco con el id y le cambio estaenfavoritos a true
-            coleccion.updateOne({ _id: ObjectId(id) }, { $set: { estaenfavoritos: false } }, function (err, actualizacion) {
+        //Busco el documento con el _id y guardo el titulo
+        coleccion.findOne({ _id: ObjectId(id) }, function (err, encontrado) {
+            console.log(encontrado);
+            // Usando titulo borro el documento de la colección favoritos, en peliculas sigue estando
+            coleccion.deleteOne({ encontrado }, function (err, eliminado) {
+                //console.log("deleteOne");
+                //console.log(eliminado);
+                // Me cambio a la colección peliculas
+                const db = client.db(dbName);
+                const collectionName = "peliculas";
+                const coleccion = db.collection(collectionName);
+                // Actualizo el objeto, lo busco con el id y le cambio estaenfavoritos a true
+                coleccion.updateOne({ _id: ObjectId(id) }, { $set: { estaenfavoritos: false } }, function (err, actualizacion) {
                     client.close();
                     res.redirect("/favoritoss");
+                });
             });
         });
     });
 });
+
+
+
 //Asigno el puerto 4000 para que escuche el servidor
 app.listen(4000, function () {
     console.log('Express escuchando en el puerto 4000');
