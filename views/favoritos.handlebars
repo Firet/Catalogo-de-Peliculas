@@ -1,1 +1,28 @@
 <h5>Este archivo es favoritos.handlebars</h5>
+
+{{#each favoritos_}}
+<div class="cuadrado-de-peliculas">
+    <span>
+        <h4>
+            <a href="/pelicula/{{this.titulosinespacio}}">{{this.titulo}}</a>
+        </h4>
+    </span>
+    <br />
+    <span>
+        <a href="/pelicula/{{this.titulosinespacio}}">
+            {{#if this.ruta}}
+            <img class="imagen" src="./imagenes/peliculas/{{this.ruta}}" alt="portada">
+            {{else}}
+            <img class="imagen" src="./imagenes/peliculas/imagendeprueba.jpg" alt="portada">
+            {{/if}}
+        </a>
+    </span>
+    <br />
+
+    {{#if this.director}}
+    <h6> {{this.director}} </h6>
+    {{else}}
+    <h6> Sin información del director</h6>
+    {{/if}}
+</div>
+{{/each}}

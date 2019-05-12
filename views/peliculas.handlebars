@@ -1,11 +1,14 @@
-<a href="/peliculas/nueva">+ Nueva Pelicula</a>
+<button>
+    <a href="/peliculas/nueva">+ Nueva Pelicula</a>
+</button>
+
 <br />
 
 {{#each peliculas_}}
 <div class="cuadrado-de-peliculas">
     <span>
         <h4>
-            <a href="/pelicula/{{@index}}">{{this.titulo}}</a>
+            <a href="/pelicula/{{this.titulosinespacio}}">{{this.titulo}}</a>
         </h4>
     </span>
     <br />
@@ -33,9 +36,3 @@
     {{/if}}
 </div>
 {{/each}}
-
-
-
-
-
-

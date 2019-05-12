@@ -94,7 +94,7 @@ app.post('/login', (req, res) => {
 
 app.get('/series', function (req, res) {
     //console.log("get a /series");
-    //const client = new MongoClient(url);
+    const client = new MongoClient(url);
     client.connect(function (err, client) {
         const db = client.db(dbName);
         // Acá le cambié de colección
@@ -146,6 +146,8 @@ app.get('/peliculas/nueva', function (req, res) {
 app.post('/peliculas/nueva', function (req, res) {
     const pelicula = {
         titulo: req.body.titulo,
+        titulosinespacio: req.body.titulosinespacio,
+        director: req.body.director,
         ruta: req.body.imagen,
         //categories: ["macbook", "notebook"]
     }
@@ -195,11 +197,11 @@ app.get('/peliculas/update/:id', function (req, res) {
 app.post('/peliculas/update/:id', function (req, res) {
     const id = req.params.id;
     const pelicula = {
-        //name: req.body.nombre,
         titulo: req.body.titulo,
-        //price: parseInt(req.body.precio),
         titulosinespacio: req.body.titulosinespacio,
-        ruta: req.body.ruta
+        director: req.body.director,
+        ruta: req.body.ruta,
+        // falta el campo 'estaenfavoritos'
     }
 
     console.log(pelicula);
@@ -217,6 +219,83 @@ app.post('/peliculas/update/:id', function (req, res) {
     });
 });
 
+app.get('/favoritoss', function (req, res) {
+    console.log("get a /favoritos");
+    const client = new MongoClient(url);
+    client.connect(function (err, client) {
+        const db = client.db(dbName);
+        // Acá le cambié de colección
+        const collectionName = 'favoritos';
+        const coleccion = db.collection(collectionName);
+        coleccion.find().toArray(function (err, favoritos) {
+            client.close();
+            res.render('favoritos', { favoritos_: favoritos, selected: { favoritos_: true } });
+        });
+    });
+});
+
+/*
+Post a api que manda una pelicula a favoritos
+se guarda el id, se busca a con findOne un registro con ese id,
+se actualiza el dato estaenfavoritos = true, y se crea un campo en
+la colección favoritos
+*/
+app.post('/peliculas/fav/:id', function (req, res) {
+    const id = req.params.id;
+
+    const client = new MongoClient(url);
+
+    client.connect(function (err, client) {
+        const db = client.db(dbName);
+        const collectionName = "peliculas";
+        const coleccion = db.collection(collectionName);
+        coleccion.findOne({ _id: ObjectId(id) }, function (err, respuesta) {
+            // Acá actualizo el objeto, lo busco con el id y le cambio estaenfavoritos a true
+            coleccion.updateOne({ _id: ObjectId(id) }, { $set: { estaenfavoritos: true } }, function (err, actualizacion) {
+                // Cambio la coleccion a favoritos
+                const collectionName = "favoritos";
+                const coleccion = db.collection(collectionName);
+                // Agrego el siguiente documento
+                coleccion.insertOne({
+                    titulo: respuesta.titulo,
+                    titulosinespacio: respuesta.titulosinespacio,
+                    ruta: respuesta.ruta,
+                    estaenfavoritos: true
+                    // falta el director
+                }, function (err, pelicula) {
+                    client.close();
+                    res.redirect("/favoritoss");
+                });
+            });
+        });
+    });
+});
+
+
+//post para sacar un elemento de favoritos IMPLEMENTAR
+app.post('/peliculas/unfav/:id', function (req, res) {
+    const id = req.params.id;
+
+    const client = new MongoClient(url);
+
+    client.connect(function (err, client) {
+        const db = client.db(dbName);
+        const collectionName = "favoritos";
+        const coleccion = db.collection(collectionName);
+        //Borro el documento de la colección favoritos, en peliculas sigue estando
+        coleccion.deleteOne({ _id: ObjectId(id) }, function (err, eliminado) {
+            // Me cambio a la colección peliculas
+            const db = client.db(dbName);
+            const collectionName = "peliculas";
+            const coleccion = db.collection(collectionName);
+            // Actualizo el objeto, lo busco con el id y le cambio estaenfavoritos a true
+            coleccion.updateOne({ _id: ObjectId(id) }, { $set: { estaenfavoritos: false } }, function (err, actualizacion) {
+                    client.close();
+                    res.redirect("/favoritoss");
+            });
+        });
+    });
+});
 //Asigno el puerto 4000 para que escuche el servidor
 app.listen(4000, function () {
     console.log('Express escuchando en el puerto 4000');

@@ -84,7 +84,8 @@ body {
   }
   
   form input[type=submit] {
-    width: 100px;
+    /* El ancho de las imágenes de películas es 182px */
+    width: 182px;
     font-size: 12px;
     line-height: 1.5;
     font-weight: 400;
@@ -95,8 +96,10 @@ body {
     padding-right: 10px;
     padding-top: 1px;
     padding-bottom: 1px;
-    background: linear-gradient(#42a1ec, #0070c9);
-    border-color: #07c;
+    /* background: linear-gradient(#42a1ec, #0070c9); 
+    border-color: #07c;*/
+    background: linear-gradient(#ec2005, #b41b06);
+    border-color: #b41b06;
     border-width: 1px;
     border-style: solid;
     border-radius: 4px;
@@ -168,6 +171,8 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
+    /* Le pongo 200px para que nombres largos de películas no rompan todo */
+    width: 200px;
   }
 
   /* Esto no lo uso, pero me va a servir cuando le cambie el color y el formate al texto */

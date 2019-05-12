@@ -2,21 +2,10 @@
 <div class="success">{{message}}</div>
 {{/if}}
 <div>
-  <a href="/peliculas">volver a películas</a>
+  <a href="/peliculas">Volver a películas</a>
 </div>
 
-{{#if pelicula}}
-<h6>existe pelicula y es {{pelicula.titulo}}</h6>
-  {{#if pelicula._id}}
-  <h6>Existe el id de pelicula y es {{pelicula._id}}</h6>
-  {{/if}}
-    {{#if pelicula.titulosinespacio}}
-  <h6>Existe el titulosinespacio de pelicula y es {{pelicula.titulosinespacio}}</h6>
-  {{/if}}
-
-{{/if}}
-
-<h1>Actualizar info de una película</h1>
+<h3>Actualizar información de una película</h3>
 <form action="/peliculas/update/{{pelicula._id}}" method="post">
   <div>
     <label for="titulo">Titulo</label>
@@ -26,10 +15,11 @@
     <label for="titulosinespacio">Titulo sin espacio</label>
     <input type="text" name="titulosinespacio" id="titulosinespacio" value="{{pelicula.titulosinespacio}}" required>
   </div>
-  {{!-- <div>
-    <label for="stock">Stock</label>
-    <input type="text" name="stock" id="stock" value="{{product.stock}}" required>
-  </div> --}}
+  {{!-- El director no es obligatorio --}}
+  <div>
+    <label for="director">Director</label>
+    <input type="text" name="director" id="director" value="{{pelicula.director}}" >
+  </div>
   <div>
     <label for="ruta">ruta</label>
     <input type="text" name="ruta" id="ruta" value="{{pelicula.ruta}}" required>
