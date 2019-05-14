@@ -10,7 +10,7 @@ function doLogin() {
             window.location.href = req.responseText;
         } else if (req.status == 403) {
             // 403: No autorizado
-            errorMessageDiv.textContent = "Usuario/clave incorrectos";
+            errorMessageDiv.textContent = "Usuario o contraseña incorrectos";
             errorMessageDiv.style.display = "block";
         } else {
             // Otro código HTTP

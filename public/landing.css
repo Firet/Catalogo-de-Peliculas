@@ -7,21 +7,23 @@
 .text-input {
     box-sizing: border-box;
     font-size: 16px;
-    width: 20%;
-    display: block;
+    width: 50%;
+    /* display: block; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 5px;
+    /* El text align center es para centrar lo que escribe el usuario */
+    text-align: center;
 }
 
 .text-input-label {
     font-size: 16px;
-    display: block;
+    /* display: block; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .button {
     border: none;
-    background-color: rgba(247, 4, 4, 0.993);
+    background-color: rgba(233, 32, 32, 0.993);
     border: 3px solid black;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -30,6 +32,7 @@
 
 .button.login {
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .error-message {
@@ -42,18 +45,32 @@
     font-size: 16px;
     width: 20%;
     display: none;
+    margin: 0 auto;
 }
 
+input {
+    margin: 0 auto;
+}
 
 .centrado {
     display: flex;
-    /* align-content: center;
+    /* align-content: center; */
     margin: 0 auto;
-    text-align:center;  */
+    text-align: center;
+    border: 1px solid black;
+    width: 700px;
+    margin-top: 100px;
+    height: 300px;
+    padding: 50px;
+    background-color: rgba(248, 36, 36, 0.993);
+    ;
+    height: 400px;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
 }
 
- .div-hijo {
-    flex: 1 1 auto; 
+.div-hijo {
+    flex: 1 1 auto;
     justify-content: center;
     align-content: center;
- }
+}

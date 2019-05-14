@@ -1,9 +1,25 @@
-<h5>Este archivo es series.handlebars</h5>
-
 {{#each series_}}
 <div class="cuadrado-de-series">
-  <span><a href="/series/{{@index}}">{{this.titulo}}</a> </span>
-  <br />
-  <img class="imagen" src="./imagenes/series/imagendeprueba.jpg" alt="img">
+    <span>
+        <h4>
+            <a href="/series/{{this.titulosinespacio}}">{{this.titulo}}</a>
+        </h4>
+    </span>
+    <br />
+    <span>
+        <a href="/serie/{{this.titulosinespacio}}">
+            {{#if this.ruta}}
+            <img class="imagen" src="./imagenes/series/{{this.ruta}}" alt="portada">
+            {{else}}
+            <img class="imagen" src="./imagenes/series/imagendeprueba.jpg" alt="portada">
+            {{/if}}
+        </a>
+    </span>
+    <br />
+    {{#if this.director}}
+    <h6> {{this.director}} </h6>
+    {{else}}
+    <h6> Sin información del director</h6>
+    {{/if}}
 </div>
 {{/each}}

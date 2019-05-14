@@ -3,15 +3,16 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-  }
-  
-  /* Chequear, lo puse para sacarle el decorado al link de contactos, pero eso lo DEBERÍA hacer nav ul li a*/
-  a {
+}
+
+/* Chequear, lo puse para sacarle el decorado al link de contactos, pero eso lo DEBERÍA hacer nav ul li a*/
+
+a {
     color: black;
     text-decoration: none;
-  }
+}
 
-  /* nav {
+/* nav {
     border-bottom: 1px solid black;
     padding-left: 20px;
     background: rgba(247, 4, 4, 0.993);
@@ -47,50 +48,49 @@ body {
     text-decoration: underline;
     text-decoration: none;
   } */
-  
-  section {
+
+section {
     padding-left: 20px;
-  }
-  
-  footer {
+}
+
+footer {
     padding-left: 20px;
     margin-top: 100px;
     font-size: 12px;
-  }
-  
-  form div {
+}
+
+form div {
     margin-bottom: 10px;
-  
-  }
-  
-  form div label {
+}
+
+form div label {
     display: inline-block;
     width: 100px;
-  }
-  
-  form input {
+}
+
+form input {
     width: 200px;
     padding: 5px;
-  }
-  
-  form select {
+}
+
+form select {
     width: 215px;
     height: 20px;
-  }
-  
-  form textarea {
+}
+
+form textarea {
     width: 200px;
     padding: 5px;
-  }
-  
-  form input[type=submit] {
+}
+
+form input[type=submit] {
     /* El ancho de las imágenes de películas es 182px */
     width: 182px;
     font-size: 12px;
     line-height: 1.5;
     font-weight: 400;
     letter-spacing: 0em;
-    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     min-width: 20px;
     padding-left: 10px;
     padding-right: 10px;
@@ -98,8 +98,8 @@ body {
     padding-bottom: 1px;
     /* background: linear-gradient(#42a1ec, #0070c9); 
     border-color: #07c;*/
-    background: linear-gradient(#ec2005, #b41b06);
-    border-color: #b41b06;
+    background: linear-gradient(#ee290f, #da3924);
+    border-color: #d64936;
     border-width: 1px;
     border-style: solid;
     border-radius: 4px;
@@ -108,74 +108,85 @@ body {
     display: inline-block;
     text-align: center;
     white-space: nowrap;
-  }
+}
 
-  /* Chequear esto para la botonera dinámica */
-  /* nav ul li a.selected {
+/* Chequear esto para la botonera dinámica */
+
+/* nav ul li a.selected {
     color: gray;
   } */
 
 /* Exito en el posteo de un nuevo producto(pelicula, juego) */
-  .success {
+
+.success {
     padding: 10px;
     background-color: lightgreen;
     color: green;
     margin-right: 30px;
     margin-top: 10px;
-  }
+}
 
-
-
-  .header {
-    background-color: red;
-    height: 55px;
+.header {
+    background-color: rgba(248, 36, 36, 0.993);
+    /* height: 55px; */
+    height: 79px;
     display: flex;
-  }
-  
-  .logo {
+}
+
+.logo {
     order: 0;
     width: 10%;
-  }
-  
-  .nav {
+}
+
+.nav {
     width: auto;
     text-align: right;
-  }
-  
-  nav ul {
+}
+
+nav ul {
     display: flex;
     list-style: none;
     padding: 0px;
-  }
-  
-  nav li {
+}
+
+nav li {
     padding-left: 35px;
     font-weight: bold;
-  }
+}
 
-  .imagen {
+.imagen {
     width: 182px;
     height: 268px;
-  }
+    -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
 
-  .cuadrado-de-series {
+.cuadrado-de-series {
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
-  }
+}
 
-
-  .cuadrado-de-peliculas {
+.cuadrado-de-peliculas {
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
     /* Le pongo 200px para que nombres largos de películas no rompan todo */
     width: 200px;
-  }
+}
 
-  /* Esto no lo uso, pero me va a servir cuando le cambie el color y el formate al texto */
-  .cuadrado-de-peliculas span {
+/* Esto no lo uso, pero me va a servir cuando le cambie el color y el formate al texto */
+
+.cuadrado-de-peliculas span {
     text-align: center;
-  }
+}
+
+.isotipo {
+    height: 50px;
+    width: 60px;
+    /* height: 70%;
+    width: 70%; */
+    padding: 10px;
+}

@@ -45,11 +45,6 @@ app.get('/index', function (req, res) {
     res.render('home');
 });
 
-app.get('/favoritos', function (req, res) {
-    //console.log("get a /favoritos");
-    res.render('favoritos');
-});
-
 app.get('/contacto', function (req, res) {
     //console.log("get a /contacto");
     res.render('contacto', { selected: { contact: true } });
@@ -219,8 +214,8 @@ app.post('/peliculas/update/:id', function (req, res) {
     });
 });
 
-app.get('/favoritoss', function (req, res) {
-    console.log("get a /favoritos");
+app.get('/favoritos', function (req, res) {
+    //console.log("get a /favoritos");
     const client = new MongoClient(url);
     client.connect(function (err, client) {
         const db = client.db(dbName);
@@ -264,7 +259,7 @@ app.post('/peliculas/fav/:id', function (req, res) {
                     // falta el director
                 }, function (err, pelicula) {
                     client.close();
-                    res.redirect("/favoritoss");
+                    res.redirect("/favoritos");
                 });
             });
         });
@@ -272,7 +267,7 @@ app.post('/peliculas/fav/:id', function (req, res) {
 });
 
 
-//post para sacar un elemento de favoritos IMPLEMENTAR
+//post para sacar un elemento de favoritos
 app.post('/peliculas/unfav/:id', function (req, res) {
     const id = req.params.id;
 
@@ -296,7 +291,7 @@ app.post('/peliculas/unfav/:id', function (req, res) {
                 // Actualizo el objeto, lo busco con el id y le cambio estaenfavoritos a true
                 coleccion.updateOne({ _id: ObjectId(id) }, { $set: { estaenfavoritos: false } }, function (err, actualizacion) {
                     client.close();
-                    res.redirect("/favoritoss");
+                    res.redirect("/favoritos");
                 });
             });
         });

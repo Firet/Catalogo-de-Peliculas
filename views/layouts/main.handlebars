@@ -3,16 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Catalogo de Películas</title>
+    <title>Movie App</title>
     <link rel="stylesheet" href="/css/main-handlebars.css">
-    {{!-- Esto es el normalize --}}
+    {{!-- Normalize --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-   
 </head>
 
 <body>
-    {{!-- Chequear que onda el this para la botonera dinámica --}}
-    {{> navbar this}}
+    {{> navbar}}
     <section>
         {{{body}}}
     </section>

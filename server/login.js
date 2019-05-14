@@ -6,7 +6,7 @@
  */
 function validarUsuario(user, password) {
 
-    if (user == "admin" && password == "admin") {
+    if (user == "Damianfederico" && password == "damianfederico") {
       return true;
     } else {
       return false

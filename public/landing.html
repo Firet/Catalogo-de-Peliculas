@@ -1,27 +1,36 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="landing.css">
     <script src="landing.js"></script>
-    <title>Login</title>
+    <title>Movie App - Login</title>
     <!-- Esto es el normalize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
 </head>
+
 <body>
     <div class="centrado">
         <div class="div-hijo">
-            <label for="user-id" class="text-input-label user">Usuario</label>
+            <h6>
+                <label for="user-id" class="text-input-label user">Usuario</label>
+            </h6>
+            <br>
             <input type="text" class="text-input user " id="user-id">
-            <label for="password" class="text-input-label password">Clave</label>
+            <br>
+            <h6>
+                <label for="password" class="text-input-label password">Contraseña</label>
+            </h6>
+            <br>
             <input type="password" class="text-input password" id="password">
-
+            <br>
             <button id="do-login" class="button login" onclick="doLogin()">Login</button>
 
-        
             <div class="error-message" id="error-message"></div>
         </div>
     </div>
 </body>
-</html> 
+
+</html>

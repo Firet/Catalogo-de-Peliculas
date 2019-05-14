@@ -1,12 +1,14 @@
 <header class="header">
     <div class="logo">
         <a href="/index">
-            {{!-- Chequear por qué no anda! la ruta está bien. --}}
-            <img src="../../public/imagenes/logo.svg" alt="NS">
+            <img class="isotipo" src="/imagenes/isotipos/red-isotipo.png" alt="NS">
         </a>
     </div>
     <nav class="nav">
         <ul>
+            <li>
+                <a href="/index">Ir al Inicio</a>
+            </li>
             <li>
                 <a href="/peliculas">Películas</a>
             </li>
@@ -14,7 +16,10 @@
                 <a href="/series">Series</a>
             </li>
             <li>
-                <a href="/favoritoss">Favoritos</a>
+                <a href="/favoritos">Favoritos</a>
+            </li>
+            <li>
+                <a href="/peliculas/nueva"> Ingresar ítem al catalogo</a>
             </li>
             <li>
                 <a href="/contacto" class="{{#if selected.contact}}selected{{/if}}">Contacto</a>
