@@ -11,20 +11,24 @@
         <br />
     </div>
     <form action="/peliculas/borrar/{{pelicula._id}}" method="post">
-        <input class="boton-alternativo" type="submit" value="Borrar">
+        {{!-- <input type="submit" value="Borrar"> --}}
+        <input class="boton-alternativo1" type="submit" value="Borrar">
         <br />
-        <a class="boton-alternativo" href="/peliculas/update/{{pelicula._id}}">Actualizar película</a>
+        {{!-- <a href="/peliculas/update/{{pelicula._id}}">Actualizar película</a> --}}
+        <a class="boton-alternativo2" href="/peliculas/update/{{pelicula._id}}">Actualizar película</a>
     </form>
 
     {{#if pelicula.estaenfavoritos}}
     <form action="/peliculas/unfav/{{pelicula._id}}" method="post">
-        <input class="boton-alternativo" type="submit" value="Quitar de favoritos">
+        {{!-- <input type="submit" value="Quitar de favoritos"> --}}
+        <input class="boton-alternativo3" type="submit" value="Quitar de favoritos">
     </form>
     {{else}}
     <form action="/peliculas/fav/{{pelicula._id}}" method="post">
         <input type="submit" value="Agregar a favoritos">
     </form>
     {{/if}}
-    <a class="boton-alternativo" href="/peliculas">Ir a sección de películas</a>
+    {{!-- <a href="/peliculas">Ir a sección de películas</a> --}}
+    <a class="boton-alternativo4" href="/peliculas">Ir a sección de películas</a>
 
 </div>

@@ -43,7 +43,7 @@
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    width: 20%;
+    width: 50%;
     display: none;
     margin: 0 auto;
 }
@@ -58,12 +58,11 @@ input {
     margin: 0 auto;
     text-align: center;
     border: 1px solid black;
-    width: 700px;
+    /* Chequear width con el login, si lo pongo en %, ej 40% se ve mal para celulares */
+    width: 500px;
     margin-top: 100px;
-    height: 300px;
     padding: 50px;
     background-color: rgba(248, 36, 36, 0.993);
-    ;
     height: 400px;
     -webkit-box-shadow: 5px 5px 15px 5px #000000;
     box-shadow: 5px 5px 15px 5px #000000;
