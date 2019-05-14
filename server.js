@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-// JS y módulos propios 
+// Javascript y módulos propios 
 const login = require('./server/login');
 const ObjectId = require('mongodb').ObjectID;
 // Obtenemos el objeto MongoClient

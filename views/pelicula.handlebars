@@ -1,29 +1,30 @@
-<h2>{{pelicula.titulo}}</h2>
+<div class="contenedor-imagen-individual">
+    <h2>{{pelicula.titulo}}</h2>
 
-{{#if pelicula.director}}
-<h6> Director: {{pelicula.director}} </h6>
-{{else}}
-<h6> No Hay información del director</h6>
-{{/if}}
+    {{#if pelicula.director}}
+    <h6> Director: {{pelicula.director}} </h6>
+    {{else}}
+    <h6> No Hay información del director</h6>
+    {{/if}}
+    <div>
+        <img class="imagen-individual" src="/imagenes/peliculas/{{pelicula.ruta}}" alt="No se encontró imagen">
+        <br />
+    </div>
+    <form action="/peliculas/borrar/{{pelicula._id}}" method="post">
+        <input class="boton-alternativo" type="submit" value="Borrar">
+        <br />
+        <a class="boton-alternativo" href="/peliculas/update/{{pelicula._id}}">Actualizar película</a>
+    </form>
 
-<div>
-    <img class="imagen-individual" src="/imagenes/peliculas/{{pelicula.ruta}}" alt="No se encontró imagen">
-    <br />
+    {{#if pelicula.estaenfavoritos}}
+    <form action="/peliculas/unfav/{{pelicula._id}}" method="post">
+        <input class="boton-alternativo" type="submit" value="Quitar de favoritos">
+    </form>
+    {{else}}
+    <form action="/peliculas/fav/{{pelicula._id}}" method="post">
+        <input type="submit" value="Agregar a favoritos">
+    </form>
+    {{/if}}
+    <a class="boton-alternativo" href="/peliculas">Ir a sección de películas</a>
+
 </div>
-
-<form action="/peliculas/borrar/{{pelicula._id}}" method="post">
-    <input type="submit" value="Borrar">
-    <br />
-    <a href="/peliculas/update/{{pelicula._id}}">Actualizar pelicula</a>
-</form>
-
-{{#if pelicula.estaenfavoritos}}
-<form action="/peliculas/unfav/{{pelicula._id}}" method="post">
-    <input type="submit" value="Quitar de favoritos">
-</form>
-{{else}}
-<form action="/peliculas/fav/{{pelicula._id}}" method="post">
-    <input type="submit" value="Agregar a favoritos">
-</form>
-{{/if}}
-<a href="/peliculas">Ir a sección de peliculas</a>
