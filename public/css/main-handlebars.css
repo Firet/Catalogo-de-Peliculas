@@ -12,43 +12,6 @@ a {
     text-decoration: none;
 }
 
-/* nav {
-    border-bottom: 1px solid black;
-    padding-left: 20px;
-    background: rgba(247, 4, 4, 0.993);
-    height: 70px;
-    padding-top: 30px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  nav ul li {
-    display: inline-block;
-  }
-  
-  nav ul li:first-child {
-    margin-right: 10px;
-  }
-  
-  nav ul li img {
-    vertical-align: middle;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: black;
-    display: block;
-  }
-  nav ul li a:hover{
-    text-decoration: underline;
-    text-decoration: none;
-  } */
-
 section {
     padding-left: 20px;
 }
@@ -140,6 +103,9 @@ form input[type=submit] {
 .nav {
     width: auto;
     text-align: right;
+    /* Esto es para centrar verticual y horizontalmente los elementos del nav */
+    margin-top: 12px;
+    margin-left: 35px;
 }
 
 nav ul {
@@ -149,7 +115,7 @@ nav ul {
 }
 
 nav li {
-    padding-left: 35px;
+    padding-left: 45px;
     font-weight: bold;
 }
 
@@ -197,10 +163,7 @@ nav li {
     padding: 10px;
 }
 
-/* Falta hacer que se centre y no sobrepase los  */
-
-.boton-alternativo {
-
+.boton-rojo {
     width: 182px;
     font-size: 12px;
     line-height: 1.5;
@@ -212,8 +175,6 @@ nav li {
     padding-right: 10px;
     padding-top: 1px;
     padding-bottom: 1px;
-    /* background: linear-gradient(#42a1ec, #0070c9); 
-    border-color: #07c;*/
     background: linear-gradient(#ee290f, #da3924);
     border-color: #d64936;
     border-width: 1px;
@@ -227,111 +188,19 @@ nav li {
     margin: 1px;
 }
 
-.boton-alternativo1 {
-
-    width: 182px;
-    font-size: 12px;
-    line-height: 1.5;
-    font-weight: 400;
-    letter-spacing: 0em;
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    min-width: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    /* background: linear-gradient(#42a1ec, #0070c9); 
-    border-color: #07c;*/
-    background: linear-gradient(#ee290f, #da3924);
-    border-color: #d64936;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    white-space: nowrap;
-    margin: 1px;
+#boton-alternativo1 {
+    width: 182px !important;
 }
-.boton-alternativo2 {
 
-    width: 161px;
-    font-size: 12px;
-    line-height: 1.5;
-    font-weight: 400;
-    letter-spacing: 0em;
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    min-width: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    /* background: linear-gradient(#42a1ec, #0070c9); 
-    border-color: #07c;*/
-    background: linear-gradient(#ee290f, #da3924);
-    border-color: #d64936;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    white-space: nowrap;
-    margin: 1px;
+#boton-alternativo2 {
+    width: 161px !important;
 }
-.boton-alternativo3 {
+
+#boton-alternativo3 {
     /* Sacar el important */
     width: 184px !important;
-    font-size: 12px;
-    line-height: 1.5;
-    font-weight: 400;
-    letter-spacing: 0em;
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    min-width: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    /* background: linear-gradient(#42a1ec, #0070c9); 
-    border-color: #07c;*/
-    background: linear-gradient(#ee290f, #da3924);
-    border-color: #d64936;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    white-space: nowrap;
-    margin: 1px;
 }
-.boton-alternativo4 {
 
-    width: 161px;
-    font-size: 12px;
-    line-height: 1.5;
-    font-weight: 400;
-    letter-spacing: 0em;
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    min-width: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    /* background: linear-gradient(#42a1ec, #0070c9); 
-    border-color: #07c;*/
-    background: linear-gradient(#ee290f, #da3924);
-    border-color: #d64936;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    white-space: nowrap;
-    margin: 1px;
+#boton-alternativo4 {
+    width: 161px !important;
 }
