@@ -1,6 +1,47 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const expressSession = require('express-session');
+const multer = require('multer');
+// Estalezco una estrategia de guardado con multer
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/uploads/');
+    },
+    filename: function (req, file, cb) {
+        // Esto es para que le ponga de nombre a la imagen la fecha,dia,hora. pero tira error
+        //cb(null, new Date().toISOString() + file.originalname);
+        cb(null, file.originalname);
+    }
+});
+const fileFilter = (req, file, cb) => {
+
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        // Guardo el archivo que se intenta subir, null hace que no tire errores
+        cb(null, true);
+    }
+    else {
+        // Rechazo el archivo que se intenta subir,
+        cb(new Error('Mensaje de error: Solo imágenes jpg y png.'), false);
+    }
+};
+// Establezco una carpeta donde multer va a guardar las imagenes
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+});
+
+// Manejo de sesión en Express con opciones basatante default, orientadas a cuestiones de seguridad.
+app.use(expressSession({
+    secret: 'Acordate de tomar buenas decisiones',
+    resave: false,
+    saveUninitialized: false
+}));
+
+
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 // Javascript y módulos propios 
@@ -13,12 +54,11 @@ const url = 'mongodb://localhost:27017';
 const dbName = 'catalogo';
 const collectionName = 'peliculas';
 
-//Creamos una nueva instancia de MongoClient
+//Creación una nueva instancia de MongoClient
 const client = new MongoClient(url);
 
-// Utilizamos el método connect para conectarnos a MongoDB
+// Utilizo el método connect para conectarnos a MongoDB
 client.connect(function (err, client) {
-    // Acá va todo el código para interactuar con MongoDB
     console.log("Conectado a MongoDB, usando la base de datos " + dbName);
     // Luego de usar la conexión podemos cerrarla
     client.close();
@@ -92,7 +132,7 @@ app.get('/series', function (req, res) {
     const client = new MongoClient(url);
     client.connect(function (err, client) {
         const db = client.db(dbName);
-        // Acá le cambié de colección
+        // Cambio de colección
         const collectionName = 'series';
         const coleccion = db.collection(collectionName);
         coleccion.find().toArray(function (err, series) {
@@ -107,7 +147,7 @@ app.get('/peliculas', function (req, res) {
     const client = new MongoClient(url);
     client.connect(function (err, client) {
         const db = client.db(dbName);
-        // Acá le cambié de colección
+        // Cambio de colección
         const collectionName = 'peliculas';
         const coleccion = db.collection(collectionName);
         coleccion.find().toArray(function (err, peliculas) {
@@ -125,7 +165,7 @@ app.get('/pelicula/:titulo', function (req, res) {
     client.connect(function (err, client) {
         const db = client.db(dbName);
         const coleccion = db.collection(collectionName);
-        // ejemplo de como buscar: coleccion.findOne({ "titulo": "Eyes Wide Shut" } 
+        // Ejemplo de como buscar: coleccion.findOne({ "titulo": "Eyes Wide Shut" } 
         coleccion.findOne({ "titulosinespacio": titulo }, function (err, pelicula) {
             console.log(pelicula);
             client.close();
@@ -144,14 +184,13 @@ app.post('/peliculas/nueva', function (req, res) {
         titulosinespacio: req.body.titulosinespacio,
         director: req.body.director,
         ruta: req.body.imagen,
-        //categories: ["macbook", "notebook"]
     }
     console.log(pelicula);
     const client = new MongoClient(url);
 
     client.connect(function (err, client) {
         const db = client.db(dbName);
-        // Acá le cambié de colección
+        // Cambio de colección
         const collectionName = 'peliculas';
         const coleccion = db.collection(collectionName);
         coleccion.insertOne(pelicula, function (error, resultado) {
@@ -219,7 +258,7 @@ app.get('/favoritos', function (req, res) {
     const client = new MongoClient(url);
     client.connect(function (err, client) {
         const db = client.db(dbName);
-        // Acá le cambié de colección
+        // Cambio de colección
         const collectionName = 'favoritos';
         const coleccion = db.collection(collectionName);
         coleccion.find().toArray(function (err, favoritos) {
@@ -298,6 +337,62 @@ app.post('/peliculas/unfav/:id', function (req, res) {
     });
 });
 
+// Prueba de post con multer. Implementar.
+app.post("/prueba-multer", upload.single('imagenPelicula'), (req, res, next) => {
+    console.log("req.file es: ");
+    console.log(req.file);
+
+    const pelicula = {
+        titulo: req.body.titulo,
+        imagen: req.file.imagenPelicula
+    };
+
+    console.log(pelicula);
+    // tengo que guardar la ruta en la base de datos, hacer despu
+
+    res.redirect('/peliculas');
+});
+
+// Server Login
+app.get("/registrarse", (req, res) => {
+    res.render("registrar");
+});
+
+app.post("/registrarusuario", (req, res) => {
+    const usuario = {
+        usuario: req.body.usuario,
+        mail: req.body.email,
+        contraseña: req.body.contraseña
+        //Implementar avatar
+    }
+
+    console.log(usuario);
+
+    const client = new MongoClient(url);
+
+    client.connect(function (err, client) {
+        const db = client.db(dbName);
+        // Cambio de colección
+        const collectionName = 'usuarios';
+        const coleccion = db.collection(collectionName);
+        coleccion.insertOne(usuario, function (error, resultado) {
+            //res.render('index', { message: 'Usuario creada!' })
+            res.redirect("/");
+        });
+    });
+});
+
+app.get("/iniciarsesion", (req, res) => {
+    // Mandar un archivo html comun, nada de hanblebars
+    res.render(iniciarsesion);
+});
+
+app.post("/iniciarsesion", (req, res) => {
+    // recibir los req bodies del form
+    // conectarme a la base de datos y chequear que coincide los req bodies
+    // con los datos de la coleccion usuarios de mongo db
+    // ACA Y en todas las rutas se usa express sesion
+});
 
 
 //Asigno el puerto 4000 para que escuche el servidor

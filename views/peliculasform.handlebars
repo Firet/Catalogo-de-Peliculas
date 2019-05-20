@@ -1,27 +1,48 @@
 {{#if message}}
-  <div class="success">{{message}}</div>
+<div class="success">{{message}}</div>
 {{/if}}
 <div>
-  <a class="boton-rojo" href="/peliculas">Volver a Películas</a>
+    <a class="boton-rojo" href="/peliculas">Volver a Películas</a>
 </div>
 
 <h3>Crear una nueva Película</h3>
 <form action="/peliculas/nueva" method="post">
-  <div>
-    <label for="titulo">Titulo</label>
-    <input type="text" name="titulo" id="titulo" required>
-  </div>
-  <div>
-    <label for="director">Director</label>
-    <input type="text" name="director" id="director">
-  </div>
-  <div>
-    <label for="titulosinespacio">Titulo sin espacio</label>
-    <input type="text" name="titulosinespacio" id="titulosinespacio" required>
-  </div> 
-  <div>
-    <label for="imagen">Imagen</label>
-    <input type="text" name="imagen" id="imagen" required>
-  </div>
-  <input type="submit" value="Crear">
+    <div>
+        <label for="titulo">Titulo</label>
+        <input type="text" name="titulo" id="titulo" required>
+    </div>
+    <div>
+        <label for="director">Director</label>
+        <input type="text" name="director" id="director">
+    </div>
+    <div>
+        <label for="titulosinespacio">Titulo sin espacio</label>
+        <input type="text" name="titulosinespacio" id="titulosinespacio" required>
+    </div>
+    <div>
+        <label for="imagen">Imagen</label>
+        <input type="text" name="imagen" id="imagen" required>
+    </div>
+    <input type="submit" value="Crear">
 </form>
+
+
+
+{{!-- VER QUE ONDA ESTO --}}
+<div class="contenedor-subir-imagenes">
+    <h1>Subir Archivo</h1>
+    <form action="/prueba-multer" method="POST" enctype="multipart/form-data">
+        <div class="file-field input-field">
+            <div class="btn grey">
+                <span>Archivo</span>
+                <input name="imagenPelicula" type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
+        </div>
+        <button type="submit" class="btn">Cargar Imagen</button>
+    </form>
+    <br>
+    {{!-- Acá va la imgen que subimos <img src="" > --}}
+</div>

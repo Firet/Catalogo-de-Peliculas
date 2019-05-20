@@ -124,6 +124,8 @@ nav li {
     height: 268px;
     -webkit-box-shadow: 5px 5px 15px 5px #000000;
     box-shadow: 5px 5px 15px 5px #000000;
+    /* Le pongo MENOS 26px para que las imagenes se acerquen a los titulos de la películas */
+    /* margin-top: -26px; */
 }
 
 .cuadrado-de-series {
@@ -197,7 +199,6 @@ nav li {
 }
 
 #boton-alternativo3 {
-    /* Sacar el important */
     width: 184px !important;
 }
 
