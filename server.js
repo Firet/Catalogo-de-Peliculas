@@ -342,13 +342,7 @@ app.post("/prueba-multer", upload.single('imagenPelicula'), (req, res, next) => 
     console.log("req.file es: ");
     console.log(req.file);
 
-    const pelicula = {
-        titulo: req.body.titulo,
-        imagen: req.file.imagenPelicula
-    };
-
-    console.log(pelicula);
-    // tengo que guardar la ruta en la base de datos, hacer despu
+    // tengo que guardar la ruta en la base de datos, hacer después
 
     res.redirect('/peliculas');
 });
@@ -376,7 +370,7 @@ app.post("/registrarusuario", (req, res) => {
         const collectionName = 'usuarios';
         const coleccion = db.collection(collectionName);
         coleccion.insertOne(usuario, function (error, resultado) {
-            //res.render('index', { message: 'Usuario creada!' })
+            //res.render('index', { message: 'Usuario creado!' })
             res.redirect("/");
         });
     });
