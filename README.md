@@ -1,10 +1,9 @@
-# Catalogo de Peliculas
-Web app realizada con Express + Mongo db + Handlebars
+# Movies Catalog
+Web app made with Express, Mongo db and Handlebars.
 
-Es necesario tener Mongo db instalado
+It is necessary to have Mongodb installed.
 
-- Primero hay que importar las colecciones peliculas.json y series.json que están en la carpeta collections
-- Instalar los modulos escribiendo los comandos npm update o npm install
-- Iniciar la aplicación escribiendo el comando npm start 
-- La aplicación funciona en localhost:4000
-
+- Import movies.json and series.json from collections folder.
+- Install modules with npm update or npm install.
+- Start the application with npm start.
+- The app works on localhost: 4000.
